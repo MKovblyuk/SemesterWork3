@@ -11,6 +11,7 @@ namespace GraphLib
         private List<GraphVertexInfo> infos;
 
 
+
         public Dijkstra(Graph graph)
         {
             this.graph = graph;
