@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLib", "GraphLib_1\GraphLib.csproj", "{38189973-CEFE-4483-BF8E-0C002C99EADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{F4E68B14-B871-40BE-B79B-ED2E7BD8D8D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38189973-CEFE-4483-BF8E-0C002C99EADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38189973-CEFE-4483-BF8E-0C002C99EADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38189973-CEFE-4483-BF8E-0C002C99EADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38189973-CEFE-4483-BF8E-0C002C99EADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E68B14-B871-40BE-B79B-ED2E7BD8D8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E68B14-B871-40BE-B79B-ED2E7BD8D8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E68B14-B871-40BE-B79B-ED2E7BD8D8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E68B14-B871-40BE-B79B-ED2E7BD8D8D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70D8B179-B3DB-4320-B74D-66E7ACFADA23}
+	EndGlobalSection
+EndGlobal
