@@ -9,12 +9,14 @@ namespace GraphLib
 {
     public class Vertex
     {
+        public string Name { get; set; }
         public object Data { get; set; }
         public readonly List<Edge> Edges;
 
         public Vertex() : this(null) { }
-        public Vertex(object data)
+        public Vertex(object data, string name = "")
         {
+            Name = name;
             Data = data;
             Edges = new List<Edge>();
         }
@@ -23,10 +25,10 @@ namespace GraphLib
         /// Add new edge from this vertex to targetVertex
         /// </summary>
         /// <param name="targetVertex"></param>
-        public void AddEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0)
+        public void AddEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0, string edgeName = "")
         {
             if (targetVertex == null) throw new NullReferenceException("TargetVertex can not be null");
-            Edge edge = new Edge(this, targetVertex, isOrientedEdge, weight);
+            Edge edge = new Edge(this, targetVertex, isOrientedEdge, weight, edgeName);
             Edges.Add(edge);
             if(targetVertex != this) targetVertex.Edges.Add(edge);
         }
@@ -39,10 +41,10 @@ namespace GraphLib
         /// <param name="isOrientedEdge"></param>
         /// <returns>true: if edge successfully removed; otherwise false.
         /// This method returns false if edge was not found</returns>
-        public bool RemoveEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0)
+        public bool RemoveEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0, string edgeName = "")
         {
             if (targetVertex == null) throw new NullReferenceException("TargetVertex can not be null");
-            Edge tmpEdge = new Edge(this, targetVertex, isOrientedEdge, weight);
+            Edge tmpEdge = new Edge(this, targetVertex, isOrientedEdge, weight, edgeName);
 
             return Edges.Remove(tmpEdge) && this != targetVertex ? targetVertex.Edges.Remove(tmpEdge) : true;
         }
@@ -54,8 +56,8 @@ namespace GraphLib
         /// <param name="isOrientedEdge"></param>
         /// <param name="weight"></param>
         /// <returns>Edge which connects this vertex and targetVertex</returns>
-        public Edge FindEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0) =>
-            FindEdge(new Edge(this, targetVertex, isOrientedEdge, weight));
+        public Edge FindEdge(Vertex targetVertex, bool isOrientedEdge = false, int weight = 0, string edgeName = "") =>
+            FindEdge(new Edge(this, targetVertex, isOrientedEdge, weight, edgeName));
 
         /// <summary>
         /// Find edge which connects this vertex and targetVertex
@@ -116,6 +118,7 @@ namespace GraphLib
             Vertex vertex = obj as Vertex;
             if (vertex == null) return false;
             return Data == null || vertex.Data == null ? Data == vertex.Data : Data.Equals(vertex.Data) &&
+                    Name.Equals(vertex.Name) &&
                     Edges.SequenceEqual(vertex.Edges);
         }
 
@@ -123,12 +126,14 @@ namespace GraphLib
         {
             int hash = 17;
             hash *= 23 + (Data == null ? 0 : Data.GetHashCode());
+            hash *= 23 + Name.GetHashCode();
             return hash;
         }
 
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder("Data: " + Data);
+            StringBuilder sb = new StringBuilder("Name: " + Name);
+            sb.Append("\nData: " + Data);
             sb.Append("\nEdges:\n");
             foreach (Edge edge in Edges)
                 sb.Append(edge).Append("\n");

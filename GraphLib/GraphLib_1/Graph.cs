@@ -19,10 +19,24 @@ namespace GraphLib
 
         private List<Vertex> vertices = new List<Vertex>();
 
+        public readonly string DefaultVertexName;
+        public readonly string DefaultEdgeName;
 
         public Graph() { }
-        public Graph(int[][] adjacencyMatrix, bool isOrientedGraph) : 
-            this(AdjacencyMatrixToVerticesList(adjacencyMatrix, isOrientedGraph),isOrientedGraph){}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="adjacencyMatrix"></param>
+        /// <param name="isOrientedGraph"></param>
+        /// <param name="vertexName">Default vertex name</param>
+        /// <param name="edgeName">Default edge name</param>
+        public Graph(int[][] adjacencyMatrix, bool isOrientedGraph, string vertexName, string edgeName) : 
+            this(AdjacencyMatrixToVerticesList(adjacencyMatrix, isOrientedGraph, vertexName, edgeName),isOrientedGraph) 
+        {
+            DefaultEdgeName = edgeName;
+            DefaultVertexName = vertexName;
+        }
 
         public Graph(List<Vertex> vertices, bool isOrientedGraph)
         {
@@ -563,17 +577,19 @@ namespace GraphLib
         /// </summary>
         /// <param name="matrix"></param>
         /// <param name="isOrientedGraph"></param>
+        /// <param name="vertexName">Default vertex name</param>
+        /// <param name="edgeName">Default edge name</param>
         /// <returns>Vertices list</returns>
-        public static List<Vertex> AdjacencyMatrixToVerticesList(int[][] matrix, bool isOrientedGraph)
+        public static List<Vertex> AdjacencyMatrixToVerticesList(int[][] matrix, bool isOrientedGraph, string vertexName, string edgeName)
         {
             if (!IsAdjacencyMatrix(matrix, isOrientedGraph)) throw new ArgumentException("Incorrect matrix argument");
             List<Vertex> vertices = new List<Vertex>(matrix.Length);
             for (int i = 0; i < matrix.Length; i++)
             {
-                vertices.Add(new Vertex());
+                vertices.Add(new Vertex() { Name = vertexName + i });
             }
 
-
+            int edgeNameIndex = 0;
             if (isOrientedGraph)
             {
                 for (int i = 0; i < matrix.Length; i++)
@@ -581,7 +597,7 @@ namespace GraphLib
                     for (int j = 0; j < matrix.Length; j++)
                     {
                         for (int k = 0; k < matrix[i][j]; k++)
-                            vertices[i].AddEdge(vertices[j], isOrientedGraph);
+                            vertices[i].AddEdge(vertices[j], isOrientedGraph,0,edgeName + edgeNameIndex++);
                     }
                 }
             }
@@ -592,7 +608,7 @@ namespace GraphLib
                     for (int j = 0; j <= i; j++)
                     {
                         for (int k = 0; k < matrix[i][j]; k++)
-                            vertices[i].AddEdge(vertices[j], isOrientedGraph);
+                            vertices[i].AddEdge(vertices[j], isOrientedGraph,0,edgeName + edgeNameIndex++);
                     }
                 }
             }

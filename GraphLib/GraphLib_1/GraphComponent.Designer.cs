@@ -51,6 +51,7 @@ namespace GraphLib
             this.dgvGrid.RowHeadersWidth = 70;
             this.dgvGrid.Size = new System.Drawing.Size(300, 250);
             this.dgvGrid.TabIndex = 0;
+            this.dgvGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrid_CellValueChanged);
             this.dgvGrid.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvGrid_UserDeletingRow);
             // 
             // btnAddVertex

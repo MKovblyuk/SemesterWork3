@@ -38,6 +38,11 @@ namespace GraphLib
 
             OnVertexRemoved(new VertexChangedEventArgs { Index = e.Row.Index });
         }
+
+        private void dgvGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            OnCellValueChanged(e);
+        }
     }
 }
 
@@ -60,9 +65,9 @@ namespace GraphLib
             if (!CheckGrid()) throw new Exception("Incorrect data in grid");
 
             if(graphView == GraphView.AdjacencyMatrix)
-                return new Graph(GridToArray(), IsOriented);
+                return new Graph(GridToArray(), IsOriented,VertexName,EdgeName);
             else
-                return new Graph(Graph.IncidenceMatrixToAdjacency((GridToArray()),IsOriented),IsOriented);
+                return new Graph(Graph.IncidenceMatrixToAdjacency((GridToArray()),IsOriented),IsOriented,VertexName,EdgeName);
         }
 
         /// <summary>
@@ -74,6 +79,8 @@ namespace GraphLib
             IsOriented = graph.IsOrientedGraph;
             int[][] matrix = graphView == GraphView.AdjacencyMatrix ? graph.AdjacencyMatrix : graph.IncidenceMatrix;
 
+            VertexName = graph.DefaultVertexName ?? VertexName;
+            EdgeName = graph.DefaultEdgeName ?? EdgeName;
 
             RemoveAllVertices();
             if (graphView == GraphView.AdjacencyMatrix)
@@ -92,14 +99,14 @@ namespace GraphLib
 
             for (int i = 0; i < matrix.Length; i++)
             {
-                for (int j = 0; j < matrix.Length; j++)
+                for (int j = 0; j < matrix[i].Length; j++)
                 {
                     dgvGrid.Rows[i].Cells[j].Value = matrix[i][j];
                 }
             }
         }
 
-        private int[][] GridToArray()
+        public int[][] GridToArray()
         {
             int[][] array = new int[dgvGrid.Rows.Count][];
 
@@ -116,7 +123,7 @@ namespace GraphLib
         }
 
 
-        private bool CheckGrid()
+        public bool CheckGrid()
         {
             for(int i = 0;i < dgvGrid.RowCount; i++)
             {
@@ -536,6 +543,9 @@ namespace GraphLib
 
         public event EventHandler<GraphViewChangedEventArgs> GraphViewChanged;
         protected virtual void OnGraphViewChanged(GraphViewChangedEventArgs e) => GraphViewChanged?.Invoke(this, e);
+
+        public event EventHandler<EventArgs> CellValueChanged;
+        protected virtual void OnCellValueChanged(EventArgs e) => CellValueChanged?.Invoke(this, e);
     }
 
     public class VertexChangedEventArgs : EventArgs
