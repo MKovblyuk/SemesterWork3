@@ -671,77 +671,77 @@ namespace GraphLib
 /// Not ready methods and properties
 /// 
 /// </summary>
-namespace GraphLib
-{
-    public partial class Graph
-    {
-        public List<Vertex> GraphDiameter
-        {
-            get
-            {
-                List<Vertex> diameter = new List<Vertex>();
+// namespace GraphLib
+// {
+//     public partial class Graph
+//     {
+//         public List<Vertex> GraphDiameter
+//         {
+//             get
+//             {
+//                 List<Vertex> diameter = new List<Vertex>();
 
-                foreach (Vertex v in vertices)
-                {
-                    List<Vertex> eccentricity = Eccentricity(v);
-                    // need compare weight but not count
-                    if (diameter.Count < eccentricity.Count)
-                    {
-                        diameter = eccentricity;
-                    }
-                }
+//                 foreach (Vertex v in vertices)
+//                 {
+//                     List<Vertex> eccentricity = Eccentricity(v);
+//                     // need compare weight but not count
+//                     if (diameter.Count < eccentricity.Count)
+//                     {
+//                         diameter = eccentricity;
+//                     }
+//                 }
 
-                return diameter;
-            }
-        }
+//                 return diameter;
+//             }
+//         }
 
-        public bool IsChain(object arguments)
-        {
-            return false;
-        }
+//         public bool IsChain(object arguments)
+//         {
+//             return false;
+//         }
 
-        public bool IsIsomorphicTo(Graph graph) => false;
+//         public bool IsIsomorphicTo(Graph graph) => false;
 
-        public bool IsCycle(object arguments)
-        {
-            return false;
-        }
+//         public bool IsCycle(object arguments)
+//         {
+//             return false;
+//         }
 
-        public bool IsSimpleChain()
-        {
-            return false;
-        }
+//         public bool IsSimpleChain()
+//         {
+//             return false;
+//         }
 
-        public bool IsSimpleCycle()
-        {
-            return false;
-        }
+//         public bool IsSimpleCycle()
+//         {
+//             return false;
+//         }
 
-        public int GraphRadius()
-        {
-            return 0;
-        }
+//         public int GraphRadius()
+//         {
+//             return 0;
+//         }
 
-        public bool IsPeripherialNode()
-        {
-            return false;
-        }
+//         public bool IsPeripherialNode()
+//         {
+//             return false;
+//         }
 
-        public object GraphCenter()
-        {
-            return null;
-        }
+//         public object GraphCenter()
+//         {
+//             return null;
+//         }
 
-        public object Bridges()
-        {
-            return null;
-        }
-        public bool IsSimpleGraph => IsOrientedGraph == false && !IsPseudoGraph && !IsMultiGraph;
-        public bool IsPseudoGraph => false;
+//         public object Bridges()
+//         {
+//             return null;
+//         }
+//         public bool IsSimpleGraph => IsOrientedGraph == false && !IsPseudoGraph && !IsMultiGraph;
+//         public bool IsPseudoGraph => false;
 
-        public bool IsTree()
-        {
-            return false;
-        }
-    }
-}
+//         public bool IsTree()
+//         {
+//             return false;
+//         }
+//     }
+// }
