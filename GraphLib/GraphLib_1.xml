@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GraphLib_1</name>
+    </assembly>
+    <members>
+        <member name="M:GraphLib.Dijkstra.InitInfo">
+            <summary>
+            Initialization of information
+            </summary>
+        </member>
+        <member name="M:GraphLib.Dijkstra.GetVertexInfo(GraphLib.Vertex)">
+            <summary>
+            Getting information about the vertex of the graph
+            </summary>
+            <param name="v">Vertex</param>
+            <returns>Information about vertex</returns>
+        </member>
+        <member name="M:GraphLib.Dijkstra.FindUnvisitedVertexWithMinSum">
+            <summary>
+            Finding an unvisited vertex with a minimum sum value
+            </summary>
+            <returns>Information about vertex</returns>
+        </member>
+        <member name="M:GraphLib.Dijkstra.FindShortestPath(GraphLib.Vertex,GraphLib.Vertex)">
+            <summary>
+            Finding the shortest path along the vertices
+            </summary>
+            <param name="startVertex">Starting vertex</param>
+            <param name="finishVertex">Ending vertex</param>
+            <returns>Shortest path</returns>
+        </member>
+        <member name="M:GraphLib.Dijkstra.SetSumToNextVertex(GraphLib.GraphVertexInfo)">
+            <summary>
+            Calculating the sum of the edge weights for the next vertex
+            </summary>
+            <param name="info">Information about the current vertex</param>
+        </member>
+        <member name="M:GraphLib.Dijkstra.GetPath(GraphLib.Vertex,GraphLib.Vertex)">
+            <summary>
+            Path formation
+            </summary>
+            <param name="startVertex">Starting vertex</param>
+            <param name="endVertex">Ending vertex</param>
+            <returns>Path</returns>
+        </member>
+        <member name="M:GraphLib.Edge.Rotate">
+            <summary>
+            Rotates the edge. Swaps StartVertex and EndVertex
+            </summary>
+        </member>
+        <member name="M:GraphLib.Graph.#ctor(System.Int32[][],System.Boolean,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="adjacencyMatrix"></param>
+            <param name="isOrientedGraph"></param>
+            <param name="vertexName">Default vertex name</param>
+            <param name="edgeName">Default edge name</param>
+        </member>
+        <member name="P:GraphLib.Graph.IsConnectedGraph">
+            <summary>
+            If this graph is not oriented, it returns a value that indicates whether it is connected
+            </summary>
+        </member>
+        <member name="P:GraphLib.Graph.IsStrongConectedGraph">
+            <summary>
+            If this graph is oriented, it returns a value that indicates whether it is connected.
+            An oriented graph is said to be strongly connected if it has a (oriented) path from any vertex to any other
+            </summary>
+        </member>
+        <member name="P:GraphLib.Graph.IsUnilaterallyConnectedGraph">
+            <summary>
+            If this graph is oriented, it returns a value that indicates whether it is unilaterally connected.
+            An oriented graph is called unilaterally connected if for any two of its vertices 
+            u and v there is at least one of the routes from v to u or from u to v.
+            </summary>
+        </member>
+        <member name="P:GraphLib.Graph.IsWeaklyConnectedGraph">
+            <summary>
+            An oriented graph is called weakly connected if there is a connected unoriented graph 
+            obtained from it by replacing the oriented edges with non-oriented ones.
+            </summary>
+        </member>
+        <member name="M:GraphLib.Graph.PathExist(GraphLib.Vertex,GraphLib.Vertex)">
+            <summary>
+            
+            </summary>
+            <param name="startVertex"></param>
+            <param name="goalVertex"></param>
+            <returns>Return boolean value which show that exist route between startVertex and goalVertex</returns>
+        </member>
+        <member name="M:GraphLib.Graph.IncidentalEdges(GraphLib.Vertex,GraphLib.Vertex)">
+            <summary>
+            Iincidental edges for vertex1 and vertex2
+            </summary>
+            <param name="vertex1"></param>
+            <param name="vertex2"></param>
+            <returns>Returns list of incidental edges for vertex1 and vertex2</returns>
+        </member>
+        <member name="M:GraphLib.Graph.IsSymmetricalMatrix(System.Int32[][])">
+            <summary>
+            Checks whether the input matrix is symmetrical
+            </summary>
+            <param name="matrix">Input matrix</param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphLib.Graph.IsAdjacencyMatrix(System.Int32[][],System.Boolean)">
+            <summary>
+            Checks whether the input matrix is adjacency
+            </summary>
+            <param name="matrix">Input matrix</param>
+            <param name="isOrientedGraph"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphLib.Graph.IsIncidenceMatrix(System.Int32[][],System.Boolean)">
+            <summary>
+            Checks whether the input matrix is incidence
+            </summary>
+            <param name="matrix">Input matrix</param>
+            <param name="isOriented"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GraphLib.Graph.AdjacencyMatrixToIncidence(System.Int32[][],System.Boolean)">
+            <summary>
+            Convert adjacency matrix to incidence matrix
+            </summary>
+            <param name="adjacency">Adjacency matrix</param>
+            <param name="isOriented"></param>
+            <returns>Incidence matrix</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GraphLib.Graph.IncidenceMatrixToAdjacency(System.Int32[][],System.Boolean)" -->
+        <member name="M:GraphLib.Graph.AdjacencyMatrixToVerticesList(System.Int32[][],System.Boolean,System.String,System.String)">
+            <summary>
+            Convert adjacency matrix to vertices list
+            </summary>
+            <param name="matrix"></param>
+            <param name="isOrientedGraph"></param>
+            <param name="vertexName">Default vertex name</param>
+            <param name="edgeName">Default edge name</param>
+            <returns>Vertices list</returns>
+        </member>
+        <member name="M:GraphLib.Graph.VerticesListToAdjacencyMatrix(System.Collections.Generic.List{GraphLib.Vertex},System.Boolean)">
+            <summary>
+            Convert vertices list to adjacency matrix
+            </summary>
+            <param name="vertices"></param>
+            <param name="isOrientedGraph"></param>
+            <returns>Adjacency matrix</returns>
+        </member>
+        <member name="M:GraphLib.GraphComponent.ToGraph">
+            <summary>
+            Set data into graph
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GraphLib.GraphComponent.FromGraph(GraphLib.Graph)">
+            <summary>
+            Get data from graph
+            </summary>
+            <param name="graph"></param>
+        </member>
+        <member name="P:GraphLib.GraphComponent.StartVerticesCount">
+            <summary>
+            Start vertices count in graph
+            </summary>
+        </member>
+        <member name="P:GraphLib.GraphComponent.StartEdgesCount">
+            <summary>
+            Start edges count in graph with incidental matrix view
+            </summary>
+        </member>
+        <member name="P:GraphLib.GraphComponent.VertexName">
+            <summary>
+            Default vertex name
+            </summary>
+        </member>
+        <member name="P:GraphLib.GraphComponent.EdgeName">
+            <summary>
+            Default edge name
+            </summary>
+        </member>
+        <member name="F:GraphLib.GraphComponent.components">
+            <summary>
+            Обязательная переменная конструктора.
+            </summary>
+        </member>
+        <member name="M:GraphLib.GraphComponent.Dispose(System.Boolean)">
+            <summary> 
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:GraphLib.GraphComponent.InitializeComponent">
+            <summary>
+            Требуемый метод для поддержки конструктора — не изменяйте 
+            содержимое этого метода с помощью редактора кода.
+            </summary>
+        </member>
+        <member name="P:GraphLib.VertexChangedEventArgs.Index">
+            <summary>
+            Index of changed vertex
+            </summary>
+        </member>
+        <member name="P:GraphLib.EdgeChangedEventArgs.Index">
+            <summary>
+            Index of changed edge
+            </summary>
+        </member>
+        <member name="M:GraphLib.Vertex.AddEdge(GraphLib.Vertex,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Add new edge from this vertex to targetVertex
+            </summary>
+            <param name="targetVertex"></param>
+        </member>
+        <member name="M:GraphLib.Vertex.RemoveEdge(GraphLib.Vertex,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Delete edge which goes from this vertex to targetVertex
+            </summary>
+            <param name="targetVertex"></param>
+            <param name="isOrientedEdge"></param>
+            <returns>true: if edge successfully removed; otherwise false.
+            This method returns false if edge was not found</returns>
+        </member>
+        <member name="M:GraphLib.Vertex.FindEdge(GraphLib.Vertex,System.Boolean,System.Int32,System.String)">
+            <summary>
+            Find edge which connects this vertex and targetVertex
+            </summary>
+            <param name="targetVertex"></param>
+            <param name="isOrientedEdge"></param>
+            <param name="weight"></param>
+            <returns>Edge which connects this vertex and targetVertex</returns>
+        </member>
+        <member name="M:GraphLib.Vertex.FindEdge(GraphLib.Edge)">
+            <summary>
+            Find edge which connects this vertex and targetVertex
+            </summary>
+            <param name="edge"></param>
+            <returns>Edge which connects this vertex and targetVertex</returns>
+        </member>
+        <member name="M:GraphLib.Vertex.IncidentalEdges(GraphLib.Vertex)">
+            <summary>
+            Iincidental edges for this vertex and targetVertex
+            </summary>
+            <param name="targetVertex"></param>
+            <returns>Returns list of incidental edges for this vertex and targetVertex</returns>
+        </member>
+        <member name="P:GraphLib.Vertex.StartNeighboringVertices">
+            <summary>
+            List of neighboring vertices in which the oriented edges begin
+            </summary>
+        </member>
+        <member name="P:GraphLib.Vertex.EndNeighboringVertices">
+            <summary>
+            List of neighboring vertices in which the oriented edges end
+            </summary>
+        </member>
+        <member name="P:GraphLib.Vertex.EdgesFromThisVertex">
+            <summary>
+            Returns oriented edges that begin at this vertex 
+            </summary>
+        </member>
+        <member name="P:GraphLib.Vertex.EdgesToThisVertex">
+            <summary>
+            Returns oriented edges that ending at this vertex 
+            </summary>
+        </member>
+    </members>
+</doc>
