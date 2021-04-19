@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace GraphLib
 {
-    class DepthFirstSearch
+    public class DepthFirstSearch
     {
         // List of visited vertices
         private HashSet<Vertex> visited;

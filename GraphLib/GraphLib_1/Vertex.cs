@@ -117,7 +117,9 @@ namespace GraphLib
         {
             Vertex vertex = obj as Vertex;
             if (vertex == null) return false;
-            return Data == null || vertex.Data == null ? Data == vertex.Data : Data.Equals(vertex.Data) &&
+
+            bool dataIsEqual = Data == null || vertex.Data == null ? Data == vertex.Data : Data.Equals(vertex.Data);
+            return dataIsEqual &&
                     Name.Equals(vertex.Name) &&
                     Edges.SequenceEqual(vertex.Edges);
         }

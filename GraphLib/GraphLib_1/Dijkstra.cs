@@ -4,12 +4,11 @@ using System.Text;
 
 namespace GraphLib
 {
-    class Dijkstra
+    public class Dijkstra
     {
         private Graph graph;
 
         private List<GraphVertexInfo> infos;
-
 
 
         public Dijkstra(Graph graph)

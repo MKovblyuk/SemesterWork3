@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GraphLib
 {
-    class GraphVertexInfo
+    public class GraphVertexInfo
     {
         public Vertex Vertex { get; set; }
         public bool IsUnvisited { get; set; }
